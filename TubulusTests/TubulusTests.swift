@@ -33,6 +33,17 @@ class TubulusTests: XCTestCase {
         }
     }
     
+    
+    func testBarCodeModulo10(){
+        let inputString = "261533"
+        XCTAssertEqual("4",barCodeCalc.modulo10(inputString).description)
+    }
+    
+    func testBarCodeModulo11(){
+        let inputString = "261533"
+        XCTAssertEqual("9",barCodeCalc.modulo11(inputString).description)
+    }
+    
 //    func testPerformanceExample() {
 //        // This is an example of a performance test case.
 //        self.measureBlock {

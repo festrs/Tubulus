@@ -109,7 +109,7 @@ public class BarCodeCalc{
         return modulo11(barCode.substringWithRange(0, end: 4) + barCode.substringWithRange(5, end: barCode.characters.count)) != Int(barCode.substringWithRange(4, end: 5))
     }
     
-    func modulo10(numero: String) -> Int{
+    public func modulo10(numero: String) -> Int{
         var soma  = 0
         var peso  = 2
         var contador = (numero.characters.count - 1)
@@ -132,7 +132,7 @@ public class BarCodeCalc{
         return digito;
     }
     
-    func modulo11(numero: String) -> Int{
+    public func modulo11(numero: String) -> Int{
         var soma = 0
         var peso = 2
         let base = 9
