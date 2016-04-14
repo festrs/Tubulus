@@ -11,19 +11,26 @@ import XCTest
 
 class TubulusTests: XCTestCase {
     
+    var barCodeCalc:BarCodeCalc!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        barCodeCalc = BarCodeCalc()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testBarCodeCalc() {
+        let barCodeLine = "846800000008518300820892999544882304314976945993"
+        let barCode = "84680000000518300820899995448823031497694599"
+        do{
+            let barCodeResult = try barCodeCalc.calcStringFromBarCode(barCode)
+            XCTAssertEqual(barCodeLine,barCodeResult)
+        }catch{
+            print("Error")
+        }
     }
     
     func testPerformanceExample() {
