@@ -7,4 +7,4 @@ before_install:
     - sudo gem install cocoapods -v '0.39.0'
 
 script:
-    xctool -workspace Tubulus.xcworkspace -scheme TubulusTests test -sdk iphonesimulator
+    xcodebuild -workspace Tubulus.xcworkspace -scheme Tubulus -sdk iphonesimulator build test
