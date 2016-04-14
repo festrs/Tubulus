@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Tubulus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3A4906761CBFFDF200D85C5E"
+               BuildableName = "TubulusTests.xctest"
+               BlueprintName = "TubulusTests"
+               ReferencedContainer = "container:Tubulus.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
