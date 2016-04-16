@@ -13,10 +13,18 @@
 		3A49066C1CBFFDF100D85C5E /* Tubulus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A49066A1CBFFDF100D85C5E /* Tubulus.xcdatamodeld */; };
 		3A49066E1CBFFDF100D85C5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A49066D1CBFFDF100D85C5E /* Assets.xcassets */; };
 		3A4906711CBFFDF100D85C5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A49066F1CBFFDF100D85C5E /* LaunchScreen.storyboard */; };
-		3A49067C1CBFFDF200D85C5E /* TubulusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49067B1CBFFDF200D85C5E /* TubulusTests.swift */; };
+		3A49067C1CBFFDF200D85C5E /* BarCodeCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49067B1CBFFDF200D85C5E /* BarCodeCalcTests.swift */; };
 		3A4906871CC0054600D85C5E /* BarCodeCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4906861CC0054600D85C5E /* BarCodeCalc.swift */; };
 		3A49068A1CC0058900D85C5E /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4906881CC0058900D85C5E /* Toast.swift */; };
 		3A49068B1CC0058900D85C5E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4906891CC0058900D85C5E /* Extensions.swift */; };
+		3A49068D1CC1C93500D85C5E /* AlertHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49068C1CC1C93400D85C5E /* AlertHandlerTests.swift */; };
+		3A4906901CC1C9A700D85C5E /* Document+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49068E1CC1C9A700D85C5E /* Document+CoreDataProperties.swift */; };
+		3A4906911CC1C9A700D85C5E /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49068F1CC1C9A700D85C5E /* Document.swift */; };
+		3A4906951CC1CAFB00D85C5E /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4906941CC1CAFB00D85C5E /* AlertHandler.swift */; };
+		3A4906971CC1CB1100D85C5E /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4906961CC1CB1100D85C5E /* PlistHelper.swift */; };
+		3A4906991CC1CB2100D85C5E /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A4906981CC1CB2100D85C5E /* Config.plist */; };
+		3A49069B1CC1CB6B00D85C5E /* FPHandlesMOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49069A1CC1CB6B00D85C5E /* FPHandlesMOC.swift */; };
+		3A49069D1CC1CBEC00D85C5E /* PlistHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49069C1CC1CBEC00D85C5E /* PlistHelperTests.swift */; };
 		D563D9592805C611CAD2BF2D /* Pods_Tubulus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94BDFF2C56D4DF7C399C33B /* Pods_Tubulus.framework */; };
 		E044CC08EA3FCDE743001C9E /* Pods_TubulusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E35D10F55E2003233E5F177 /* Pods_TubulusTests.framework */; };
 /* End PBXBuildFile section */
@@ -42,11 +50,19 @@
 		3A4906701CBFFDF100D85C5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A4906721CBFFDF100D85C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A4906771CBFFDF200D85C5E /* TubulusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TubulusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A49067B1CBFFDF200D85C5E /* TubulusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubulusTests.swift; sourceTree = "<group>"; };
+		3A49067B1CBFFDF200D85C5E /* BarCodeCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeCalcTests.swift; sourceTree = "<group>"; };
 		3A49067D1CBFFDF200D85C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A4906861CC0054600D85C5E /* BarCodeCalc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeCalc.swift; sourceTree = "<group>"; };
 		3A4906881CC0058900D85C5E /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		3A4906891CC0058900D85C5E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3A49068C1CC1C93400D85C5E /* AlertHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHandlerTests.swift; sourceTree = "<group>"; };
+		3A49068E1CC1C9A700D85C5E /* Document+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Document+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3A49068F1CC1C9A700D85C5E /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		3A4906941CC1CAFB00D85C5E /* AlertHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHandler.swift; sourceTree = "<group>"; };
+		3A4906961CC1CB1100D85C5E /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
+		3A4906981CC1CB2100D85C5E /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		3A49069A1CC1CB6B00D85C5E /* FPHandlesMOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPHandlesMOC.swift; sourceTree = "<group>"; };
+		3A49069C1CC1CBEC00D85C5E /* PlistHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelperTests.swift; sourceTree = "<group>"; };
 		6504B621055F69ED870044AF /* Pods-Tubulus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tubulus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus.debug.xcconfig"; sourceTree = "<group>"; };
 		7E35D10F55E2003233E5F177 /* Pods_TubulusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TubulusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F72E6EB5C2D4D11381452A9 /* Pods-Tubulus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tubulus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,14 +113,16 @@
 		3A4906621CBFFDF100D85C5E /* Tubulus */ = {
 			isa = PBXGroup;
 			children = (
-				3A4906861CC0054600D85C5E /* BarCodeCalc.swift */,
+				3A4906921CC1C9AC00D85C5E /* Model */,
 				3A4906631CBFFDF100D85C5E /* AppDelegate.swift */,
 				3A4906651CBFFDF100D85C5E /* ViewController.swift */,
+				3A49069A1CC1CB6B00D85C5E /* FPHandlesMOC.swift */,
 				3A4906671CBFFDF100D85C5E /* Main.storyboard */,
 				3A49066D1CBFFDF100D85C5E /* Assets.xcassets */,
 				3A49066F1CBFFDF100D85C5E /* LaunchScreen.storyboard */,
 				3A4906721CBFFDF100D85C5E /* Info.plist */,
 				3A49066A1CBFFDF100D85C5E /* Tubulus.xcdatamodeld */,
+				3A4906981CC1CB2100D85C5E /* Config.plist */,
 				3A4906881CC0058900D85C5E /* Toast.swift */,
 				3A4906891CC0058900D85C5E /* Extensions.swift */,
 			);
@@ -114,10 +132,32 @@
 		3A49067A1CBFFDF200D85C5E /* TubulusTests */ = {
 			isa = PBXGroup;
 			children = (
-				3A49067B1CBFFDF200D85C5E /* TubulusTests.swift */,
+				3A49067B1CBFFDF200D85C5E /* BarCodeCalcTests.swift */,
 				3A49067D1CBFFDF200D85C5E /* Info.plist */,
+				3A49068C1CC1C93400D85C5E /* AlertHandlerTests.swift */,
+				3A49069C1CC1CBEC00D85C5E /* PlistHelperTests.swift */,
 			);
 			path = TubulusTests;
+			sourceTree = "<group>";
+		};
+		3A4906921CC1C9AC00D85C5E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A4906861CC0054600D85C5E /* BarCodeCalc.swift */,
+				3A4906941CC1CAFB00D85C5E /* AlertHandler.swift */,
+				3A4906961CC1CB1100D85C5E /* PlistHelper.swift */,
+				3A4906931CC1C9B400D85C5E /* CoreData */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3A4906931CC1C9B400D85C5E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3A49068E1CC1C9A700D85C5E /* Document+CoreDataProperties.swift */,
+				3A49068F1CC1C9A700D85C5E /* Document.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		A663EB1F507B569D183E1870 /* Pods */ = {
@@ -227,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4906991CC1CB2100D85C5E /* Config.plist in Resources */,
 				3A4906711CBFFDF100D85C5E /* LaunchScreen.storyboard in Resources */,
 				3A49066E1CBFFDF100D85C5E /* Assets.xcassets in Resources */,
 				3A4906691CBFFDF100D85C5E /* Main.storyboard in Resources */,
@@ -340,11 +381,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4906911CC1C9A700D85C5E /* Document.swift in Sources */,
 				3A49066C1CBFFDF100D85C5E /* Tubulus.xcdatamodeld in Sources */,
+				3A4906971CC1CB1100D85C5E /* PlistHelper.swift in Sources */,
 				3A49068B1CC0058900D85C5E /* Extensions.swift in Sources */,
+				3A4906951CC1CAFB00D85C5E /* AlertHandler.swift in Sources */,
+				3A4906901CC1C9A700D85C5E /* Document+CoreDataProperties.swift in Sources */,
 				3A4906661CBFFDF100D85C5E /* ViewController.swift in Sources */,
 				3A49068A1CC0058900D85C5E /* Toast.swift in Sources */,
 				3A4906641CBFFDF100D85C5E /* AppDelegate.swift in Sources */,
+				3A49069B1CC1CB6B00D85C5E /* FPHandlesMOC.swift in Sources */,
 				3A4906871CC0054600D85C5E /* BarCodeCalc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,7 +399,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A49067C1CBFFDF200D85C5E /* TubulusTests.swift in Sources */,
+				3A49069D1CC1CBEC00D85C5E /* PlistHelperTests.swift in Sources */,
+				3A49067C1CBFFDF200D85C5E /* BarCodeCalcTests.swift in Sources */,
+				3A49068D1CC1C93500D85C5E /* AlertHandlerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

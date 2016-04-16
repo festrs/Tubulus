@@ -30,21 +30,29 @@ public struct StructBarCode {
         let formatter = NSNumberFormatter()
         formatter.minimumIntegerDigits = 2
         if expDate != nil{
-            return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\(NSDate().timeIntervalSince1970)\"}"
+            return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\(round(NSDate().timeIntervalSince1970))\"}"
         }else{
-            return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber(month)!)/\(year)\",\"created_at\":\"\(NSDate().timeIntervalSince1970)\"}"
+            return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber(month)!)/\(year)\",\"created_at\":\"\(round(NSDate().timeIntervalSince1970))\"}"
         }
     }
 }
 
-public class BarCodeCalc{
-    
-    enum BarCodeCalcError: ErrorType {
-        case Not44Characters
-        case DateNotPicked
+
+
+enum BarCodeCalcError: ErrorType, Equatable {
+    case Not44Characters (message: String)
+}
+
+func ==(lhs: BarCodeCalcError, rhs: BarCodeCalcError) -> Bool {
+    switch (lhs, rhs) {
+    case (.Not44Characters(let leftMessage), .Not44Characters(let rightMessage)):
+        return leftMessage == rightMessage
     }
+}
+
+class BarCodeCalc{
     
-    public func extractDataFromBarCode(barCode: String) throws -> StructBarCode {
+    func extractDataFromBarCode(barCode: String) throws -> StructBarCode {
         
         let barCodeLine = try calcStringFromBarCode(barCode)
         let valueString = barCode.substringWithRange(5, end: 15)
@@ -81,9 +89,9 @@ public class BarCodeCalc{
     //    Posição 33-33 = Dígito verificador geral (posição 5 do código de barras)
     //    Posição 34-37 = Fator de vencimento (posições 6 a 9 do código de barras)
     //    Posição 38-47 = Valor nominal do título (posições 10 a 19 do código de barras)
-    public func calcStringFromBarCode(barCode: String) throws -> String{
+    func calcStringFromBarCode(barCode: String) throws -> String{
         
-        guard barCode.characters.count == 44 else { throw BarCodeCalcError.Not44Characters }
+        guard barCode.characters.count == 44 else { throw BarCodeCalcError.Not44Characters(message: "Not 44 Characters") }
         
         let campo1 = barCode.substringWithRange(0, end: 4) + barCode.substringWithRange(19, end: 20) + barCode.substringWithRange(20, end: 24)
         let campo2 = barCode.substringWithRange(24, end: 29) + barCode.substringWithRange(29, end: 34)
@@ -105,11 +113,12 @@ public class BarCodeCalc{
     }
     
     // verificador de conta consumo
-    public func verifyModulo11(barCode: String) ->Bool{
-        return modulo11(barCode.substringWithRange(0, end: 4) + barCode.substringWithRange(5, end: barCode.characters.count)) != Int(barCode.substringWithRange(4, end: 5))
+    func verifyModulo11(barCode: String) ->Bool{
+        let modulo11Calc = modulo11(barCode.substringWithRange(0, end: 4) + barCode.substringWithRange(5, end: barCode.characters.count))
+        return  modulo11Calc != Int(barCode.substringWithRange(4, end: 5))
     }
     
-    public func modulo10(numero: String) -> Int{
+    func modulo10(numero: String) -> Int{
         var soma  = 0
         var peso  = 2
         var contador = (numero.characters.count - 1)
@@ -132,7 +141,7 @@ public class BarCodeCalc{
         return digito;
     }
     
-    public func modulo11(numero: String) -> Int{
+    func modulo11(numero: String) -> Int{
         var soma = 0
         var peso = 2
         let base = 9
