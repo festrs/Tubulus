@@ -25,34 +25,18 @@ struct Plist {
 
     let name:String
 
-    var sourcePath:String? {
-        guard let path = NSBundle.mainBundle().pathForResource(name, ofType: "plist") else { return .None }
-        return path
-    }
-    var _destPath:String?
-    var destPath:String? {
-        mutating get {
-            guard sourcePath != .None else { return .None }
-            let dir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-            _destPath = (dir as NSString).stringByAppendingPathComponent("\(name).plist")
-            return _destPath
-        }
-        set(newValue){
-            _destPath = newValue
-        }
-    }
+    var sourcePath:String?
+    var destPath:String?
     
-    init?(name:String) {
-
+    init?(name:String, destPath:String?, sourcePath:String?) {
         self.name = name
         let fileManager = NSFileManager.defaultManager()
-        guard let source = sourcePath else { return nil }
-        guard let destination = destPath else { return nil }
-        guard fileManager.fileExistsAtPath(source) else { return nil }
-
-        if !fileManager.fileExistsAtPath(destination) {
+        self.sourcePath = sourcePath
+        self.destPath = destPath
+        guard fileManager.fileExistsAtPath(self.sourcePath!) else { return nil }
+        if !fileManager.fileExistsAtPath(self.destPath!) {
             do {
-                try fileManager.copyItemAtPath(source, toPath: destination)
+                try fileManager.copyItemAtPath(self.sourcePath!, toPath: self.destPath!)
             } catch let error as NSError {
                 print("Unable to copy file. ERROR: \(error.localizedDescription)")
                 return nil
@@ -60,7 +44,26 @@ struct Plist {
         }
     }
     
-    mutating func getValuesInPlistFile() -> NSDictionary?{
+    init?(name:String) {
+        self.name = name
+        let fileManager = NSFileManager.defaultManager()
+        guard let path = NSBundle.mainBundle().pathForResource(name, ofType: "plist") else { return nil }
+        self.sourcePath = path
+        guard self.sourcePath != .None else { return nil }
+        let dir = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        self.destPath = (dir as NSString).stringByAppendingPathComponent("\(name).plist")
+        guard fileManager.fileExistsAtPath(self.sourcePath!) else { return nil }
+        if !fileManager.fileExistsAtPath(self.destPath!) {
+            do {
+                try fileManager.copyItemAtPath(self.sourcePath!, toPath: self.destPath!)
+            } catch let error as NSError {
+                print("Unable to copy file. ERROR: \(error.localizedDescription)")
+                return nil
+            }
+        }
+    }
+    
+    func getValuesInPlistFile() -> NSDictionary?{
         let fileManager = NSFileManager.defaultManager()
         if fileManager.fileExistsAtPath(destPath!) {
             guard let dict = NSDictionary(contentsOfFile: destPath!) else { return .None }
@@ -70,7 +73,7 @@ struct Plist {
         }
     }
 
-    mutating func getMutablePlistFile() -> NSMutableDictionary?{
+    func getMutablePlistFile() -> NSMutableDictionary?{
         let fileManager = NSFileManager.defaultManager()
         if fileManager.fileExistsAtPath(destPath!) {
             guard let dict = NSMutableDictionary(contentsOfFile: destPath!) else { return .None }
@@ -80,7 +83,7 @@ struct Plist {
         }
     }
 
-    mutating func addValuesToPlistFile(dictionary:NSDictionary) throws {
+    func addValuesToPlistFile(dictionary:NSDictionary) throws {
         let fileManager = NSFileManager.defaultManager()
         if fileManager.fileExistsAtPath(destPath!) {
             if !dictionary.writeToFile(destPath!, atomically: false) {
