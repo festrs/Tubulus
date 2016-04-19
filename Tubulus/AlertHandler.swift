@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import CoreData
+import DATAStack
 
 class AlertHandler:FPHandlesMOC {
     
     static let sharedInstance = AlertHandler()
-    private var managedObjectContext:NSManagedObjectContext!
+    private var dataStack:DATAStack!
     lazy var plist = Plist(name: "Config")
     
     private init() {} //This prevents others from using the default '()' initializer for this class.
@@ -26,7 +26,7 @@ class AlertHandler:FPHandlesMOC {
 
             let fetchRequestFirst = NSFetchRequest(entityName: "Document")
             do {
-                let results = try self.managedObjectContext.executeFetchRequest(fetchRequestFirst) as! [Document]
+                let results = try self.dataStack.mainContext.executeFetchRequest(fetchRequestFirst) as! [Document]
                 if results.count > 0 {
                     for doc:Document in results {
                         self.createLocalNotification(doc)
@@ -63,7 +63,7 @@ class AlertHandler:FPHandlesMOC {
     }
     
     func isToSetAlarm() -> Bool{
-        if var plist = self.plist {
+        if let plist = self.plist {
             let dict = plist.getMutablePlistFile()
             return dict!["set_alarm"] as! Bool
         } else {
@@ -73,7 +73,7 @@ class AlertHandler:FPHandlesMOC {
     }
     
     func getHourToNotify() -> Int?{
-        if var plist = self.plist {
+        if let plist = self.plist {
             let dict = plist.getMutablePlistFile()
             return dict!["alarm_hour"] as? Int
         } else {
@@ -83,7 +83,7 @@ class AlertHandler:FPHandlesMOC {
     }
     
     func getDayToNotify() -> Int?{
-        if var plist = self.plist {
+        if let plist = self.plist {
             let dict = plist.getMutablePlistFile()
             return dict!["days_to_alarm"] as? Int
         } else {
@@ -92,7 +92,7 @@ class AlertHandler:FPHandlesMOC {
         }
     }
     
-    func receiveMOC(incomingMOC: NSManagedObjectContext) {
-        self.managedObjectContext = incomingMOC
+    func receiveDataStack(incomingDataStack: DATAStack) {
+        self.dataStack = incomingDataStack
     }
 }

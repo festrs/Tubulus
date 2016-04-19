@@ -8,8 +8,8 @@
 
 import UIKit
 import CoreData
+import DATAStack
 
 protocol FPHandlesMOC:class{
-    func receiveMOC(incomingMOC: NSManagedObjectContext)
-
+    func receiveDataStack(incomingDataStack: DATAStack)
 }
