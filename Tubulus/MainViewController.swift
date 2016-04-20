@@ -27,9 +27,13 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
+        self.configTableView()
+    }
+    
+    func configTableView(){
         self.coreDataTableView = self.tableView
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.tableView.alwaysBounceVertical = false
+        self.performFetch()
     }
     
     // MARK: - QRCodeReader Delegate Methods
@@ -46,7 +50,7 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
                         if error != nil {
                             print(error)
                         }else{
-                            
+                            self.performFetch()
                         }
                     })
                 }catch{
@@ -56,6 +60,7 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
         })
     }
     
+    //MARK: - Actions
     @IBAction func addButtonTapped(sender: AnyObject) {
         if QRCodeReader.supportsMetadataObjectTypes() {
             reader.modalPresentationStyle = .FormSheet
@@ -91,6 +96,24 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
     //MARK
     func receiveDataStack(incomingDataStack: DATAStack) {
         self.dataStack = incomingDataStack
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toDetailDocument"{
+            if segue.destinationViewController.isKindOfClass(DetailDocumentViewController){
+                let vc = segue.destinationViewController as! DetailDocumentViewController
+                if sender!.isKindOfClass(UITableViewCell){
+                    
+                    if let cell = sender as? UITableViewCell,
+                    indexPath = self.tableView.indexPathForCell(cell),
+                    document = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Document
+                    {
+                        vc.document = document
+                    }
+                }
+            }
+        }
     }
 
 }

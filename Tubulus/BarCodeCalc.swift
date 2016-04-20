@@ -24,16 +24,9 @@ public struct StructBarCode {
     }
     
     func toStringJSON()->String{
-        let date = NSDate()
-        let month = date.getComponent(.Month)!
-        let year = date.getComponent(.Year)!
         let formatter = NSNumberFormatter()
         formatter.minimumIntegerDigits = 2
-        if expDate != nil{
-            return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\(round(NSDate().timeIntervalSince1970))\"}"
-        }else{
-            return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber(month)!)/\(year)\",\"created_at\":\"\(round(NSDate().timeIntervalSince1970))\"}"
-        }
+        return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\(round(NSDate().timeIntervalSince1970))\"}"
     }
 }
 
@@ -59,7 +52,7 @@ class BarCodeCalc{
         let index = valueString.characters.count-2
         let value = valueString.insert(".", ind: index)
         var valueF = Float(value)
-        var expDate:NSDate? = nil
+        var expDate = NSDate()
         if !verifyModulo11(barCode) {
             if Int(barCode.substringWithRange(5, end: 9)) == 0{
                 valueF = 0.0
