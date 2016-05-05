@@ -14,8 +14,9 @@
 		3A0397461CC6BAED0060F407 /* ProtocolCoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0397441CC6BAED0060F407 /* ProtocolCoreDataTableViewController.swift */; };
 		3A0397481CC6BE4C0060F407 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0397471CC6BE4C0060F407 /* TabBarController.swift */; };
 		3A03974A1CC6C2290060F407 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A0397491CC6C2290060F407 /* NavigationController.swift */; };
+		3A03974C1CC7F8560060F407 /* DetailDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A03974B1CC7F8560060F407 /* DetailDocumentViewController.swift */; };
+		3A03974E1CC806EB0060F407 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A03974D1CC806EB0060F407 /* DatePickerDialog.swift */; };
 		3A4906641CBFFDF100D85C5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4906631CBFFDF100D85C5E /* AppDelegate.swift */; };
-		3A4906661CBFFDF100D85C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4906651CBFFDF100D85C5E /* ViewController.swift */; };
 		3A4906691CBFFDF100D85C5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4906671CBFFDF100D85C5E /* Main.storyboard */; };
 		3A49066C1CBFFDF100D85C5E /* Tubulus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A49066A1CBFFDF100D85C5E /* Tubulus.xcdatamodeld */; };
 		3A49066E1CBFFDF100D85C5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A49066D1CBFFDF100D85C5E /* Assets.xcassets */; };
@@ -55,9 +56,10 @@
 		3A0397441CC6BAED0060F407 /* ProtocolCoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtocolCoreDataTableViewController.swift; sourceTree = "<group>"; };
 		3A0397471CC6BE4C0060F407 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3A0397491CC6C2290060F407 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		3A03974B1CC7F8560060F407 /* DetailDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDocumentViewController.swift; sourceTree = "<group>"; };
+		3A03974D1CC806EB0060F407 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		3A4906601CBFFDF100D85C5E /* Tubulus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tubulus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4906631CBFFDF100D85C5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A4906651CBFFDF100D85C5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A4906681CBFFDF100D85C5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A49066B1CBFFDF100D85C5E /* Tubulus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tubulus.xcdatamodel; sourceTree = "<group>"; };
 		3A49066D1CBFFDF100D85C5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				3A0397431CC6BAED0060F407 /* CoreDataTableViewController.swift */,
 				3A03973B1CC678DB0060F407 /* ConfigTableViewController.swift */,
 				3A03973C1CC678DB0060F407 /* ConfigDetailTableViewController.swift */,
+				3A03974B1CC7F8560060F407 /* DetailDocumentViewController.swift */,
 				3A0397401CC6B9060060F407 /* MainViewController.swift */,
 				3A0397471CC6BE4C0060F407 /* TabBarController.swift */,
 				3A0397491CC6C2290060F407 /* NavigationController.swift */,
@@ -153,7 +156,7 @@
 				3A03973F1CC678E10060F407 /* Controller */,
 				3A4906921CC1C9AC00D85C5E /* Model */,
 				3A4906631CBFFDF100D85C5E /* AppDelegate.swift */,
-				3A4906651CBFFDF100D85C5E /* ViewController.swift */,
+				3A03974D1CC806EB0060F407 /* DatePickerDialog.swift */,
 				3A4906671CBFFDF100D85C5E /* Main.storyboard */,
 				3A49066D1CBFFDF100D85C5E /* Assets.xcassets */,
 				3A49066F1CBFFDF100D85C5E /* LaunchScreen.storyboard */,
@@ -427,11 +430,12 @@
 				3A03973D1CC678DB0060F407 /* ConfigTableViewController.swift in Sources */,
 				3A0397481CC6BE4C0060F407 /* TabBarController.swift in Sources */,
 				3A49068B1CC0058900D85C5E /* Extensions.swift in Sources */,
+				3A03974E1CC806EB0060F407 /* DatePickerDialog.swift in Sources */,
 				3A4906951CC1CAFB00D85C5E /* AlertHandler.swift in Sources */,
 				3A0397411CC6B9060060F407 /* MainViewController.swift in Sources */,
 				3A0397451CC6BAED0060F407 /* CoreDataTableViewController.swift in Sources */,
 				3A4906901CC1C9A700D85C5E /* Document+CoreDataProperties.swift in Sources */,
-				3A4906661CBFFDF100D85C5E /* ViewController.swift in Sources */,
+				3A03974C1CC7F8560060F407 /* DetailDocumentViewController.swift in Sources */,
 				3A49068A1CC0058900D85C5E /* Toast.swift in Sources */,
 				3A4906641CBFFDF100D85C5E /* AppDelegate.swift in Sources */,
 				3A49069B1CC1CB6B00D85C5E /* FPHandlesMOC.swift in Sources */,

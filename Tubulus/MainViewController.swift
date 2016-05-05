@@ -24,13 +24,19 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
         }
         return QRCodeReaderViewController(builder: builder)
     }()
+    lazy var alertHandler = AlertHandler.sharedInstance
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
+        self.configTableView()
+    }
+    
+    func configTableView(){
         self.coreDataTableView = self.tableView
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-        self.tableView.alwaysBounceVertical = false
+        self.performFetch()
     }
+
     
     // MARK: - QRCodeReader Delegate Methods
     func reader(reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
@@ -40,13 +46,17 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
                 do{
                     let barCodeStruct = try self.carCodeCalc.extractDataFromBarCode(result.value)
                     let json = barCodeStruct.toStringJSON().convertStringToDictionary()
+                    print(barCodeStruct.toStringJSON())
                     let key = json["id"] as! String
                     let predicate = NSPredicate(format: "remoteID = %@", key)
                     Sync.changes([json], inEntityNamed: "Document", predicate: predicate, dataStack: self.dataStack, completion: { (error) -> Void in
                         if error != nil {
                             print(error)
                         }else{
-                            
+                            self.performFetch()
+                            let items = self.fetchedResultsController?.fetchedObjects as! [Document]
+                            let doc = items.filter({$0.remoteID == key}).first
+                            self.alertHandler.createLocalNotification(doc!)
                         }
                     })
                 }catch{
@@ -54,6 +64,11 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
                 }
             }
         })
+    }
+    
+    //MARK: - Actions
+    @IBAction func editTapped(sender: AnyObject) {
+        self.tableView.setEditing(!self.tableView.editing, animated: true)
     }
     
     @IBAction func addButtonTapped(sender: AnyObject) {
@@ -81,16 +96,48 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
         indexPath: NSIndexPath) -> UITableViewCell {
         let document = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Document
         let cell = tableView.dequeueReusableCellWithIdentifier("BoletoCell")
-        let day = document.expDate!.getComponent(.Day)
+        print(document.expDate)
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components([.Day , .Month , .Year], fromDate: document.expDate!)
+        let day = components.day
         let monthName = monthsName[document.expDate!.getComponent(.Month)!]
-        cell?.textLabel?.text = "\(day!)/\(monthName!)"
+        cell?.textLabel?.text = "\(day)/\(monthName!)"
         cell?.detailTextLabel?.text = document.value?.toMaskReais()
         return cell!
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == .Delete) {
+            let document = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Document
+            
+            dataStack.mainContext.deleteObject(document)
+            dataStack.persistWithCompletion(nil)
+            self.performFetch()
+            self.tableView.reloadData()
+        }
     }
     
     //MARK
     func receiveDataStack(incomingDataStack: DATAStack) {
         self.dataStack = incomingDataStack
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toDetailDocument"{
+            if segue.destinationViewController.isKindOfClass(DetailDocumentViewController){
+                let vc = segue.destinationViewController as! DetailDocumentViewController
+                if sender!.isKindOfClass(UITableViewCell){
+                    
+                    if let cell = sender as? UITableViewCell,
+                    indexPath = self.tableView.indexPathForCell(cell),
+                    document = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Document
+                    {
+                        vc.document = document
+                    }
+                }
+            }
+        }
     }
 
 }
