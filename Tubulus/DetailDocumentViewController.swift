@@ -12,6 +12,7 @@ import AVFoundation
 
 class DetailDocumentViewController: UIViewController {
     
+    @IBOutlet weak var bankLabel: UILabel!
     @IBOutlet weak var barCodeImageView: UIImageView!
     @IBOutlet weak var barCodeLineLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
@@ -20,13 +21,14 @@ class DetailDocumentViewController: UIViewController {
     //MARK: - APP Life
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        totalLabel.text = document.value?.toMaskReais()
+        totalLabel.text = "Valor do boleto: \((document.value?.toMaskReais())!)"
         barCodeLineLabel.text = document.barCodeLine
         let image = RSUnifiedCodeGenerator.shared.generateCode(document.remoteID!, machineReadableCodeObjectType: AVMetadataObjectTypeInterleaved2of5Code)
         barCodeImageView.image = image
         let monthName = monthsName[document.expDate!.getComponent(.Month)!]
         self.title = "\(document.expDate!.getComponent(.Day)!)/\(monthName!)"
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailDocumentViewController.didClickBarCode(_:)))
+        self.bankLabel.text = "Banco: \(self.document.bank!)"
         self.barCodeImageView.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -38,7 +40,7 @@ class DetailDocumentViewController: UIViewController {
     }
     
     func didClickBarCode(sender: UITapGestureRecognizer) {
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let screenSize: CGRect = self.view.bounds
         let backView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
         backView.backgroundColor = .blackColor()
         backView.contentMode = .ScaleAspectFit
@@ -47,7 +49,7 @@ class DetailDocumentViewController: UIViewController {
         let newImageView = UIImageView(image: imageView.image)
         newImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI_2))
         newImageView.frame = CGRectMake(0, 0, screenSize.width-(screenSize.width*0.65), screenSize.height-(screenSize.height*0.2))
-        //newImageView.center = CGPointMake(backView.center.x,backView.center.y);
+        newImageView.center = CGPointMake(0,backView.center.y);
         backView.addSubview(newImageView)
         let tap = UITapGestureRecognizer(target: self, action: #selector(DetailDocumentViewController.dismissFullscreenImage(_:)))
         backView.addGestureRecognizer(tap)

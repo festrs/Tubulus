@@ -57,7 +57,7 @@ class AlertHandler:FPHandlesMOC {
             notification.soundName = UILocalNotificationDefaultSoundName // play default sound
             notification.userInfo = ["RemoteID": document.remoteID! ]
             notification.category = "DOCUMENT_CATEGORY"
-            notification.alertBody = "Você tem um Boleto vencendo heim \(document.expDate?.getComponent(.Day))/\(document.expDate?.getComponent(.Month))"
+            notification.alertBody = "Você tem um Boleto vencendo heim \((document.expDate?.getComponent(.Day))!)/\((document.expDate?.getComponent(.Month))!)"
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
         }
     }

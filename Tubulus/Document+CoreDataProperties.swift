@@ -19,6 +19,7 @@ extension Document {
     @NSManaged var expDate: NSDate?
     @NSManaged var mes: String?
     @NSManaged var remoteID: String?
+    @NSManaged var bank: String?
     @NSManaged var value: NSNumber?
 
 }

@@ -13,32 +13,33 @@ public struct StructBarCode {
     
     var barCode: String?
     var barCodeLine: String?
+    var bank: String?
     var value: Float?
     var expDate: NSDate?
     
-    init(barCode: String?, barCodeLine: String?, value: Float?, expDate: NSDate?){
+    init(barCode: String?, barCodeLine: String?,bank:String?, value: Float?, expDate: NSDate?){
         self.barCode = barCode
         self.barCodeLine = barCodeLine
         self.value = value
         self.expDate = expDate
+        self.bank = bank
     }
     
     func toStringJSON()->String{
         let formatter = NSNumberFormatter()
         formatter.minimumIntegerDigits = 2
-        return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\(round(NSDate().timeIntervalSince1970))\"}"
+        return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"bank\":\"\(bank!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\((NSDate().timeIntervalSince1970))\"}"
     }
 }
 
 
-
 enum BarCodeCalcError: ErrorType, Equatable {
-    case Not44Characters (message: String)
+    case ToManyCharacters (message: String)
 }
 
 func ==(lhs: BarCodeCalcError, rhs: BarCodeCalcError) -> Bool {
     switch (lhs, rhs) {
-    case (.Not44Characters(let leftMessage), .Not44Characters(let rightMessage)):
+    case (.ToManyCharacters(let leftMessage), .ToManyCharacters(let rightMessage)):
         return leftMessage == rightMessage
     }
 }
@@ -53,6 +54,7 @@ class BarCodeCalc{
         let value = valueString.insert(".", ind: index)
         var valueF = Float(value)
         var expDate = NSDate()
+        var bank = ""
         if !verifyModulo11(barCode) {
             if Int(barCode.substringWithRange(5, end: 9)) == 0{
                 valueF = 0.0
@@ -64,11 +66,18 @@ class BarCodeCalc{
             }
             let days:Int = Int(barCode.substringWithRange(5, end: 9))!
             if days != 0{
-                // date started 7/10/1997 - 1/1/1970  = 10141
-                expDate = NSDate(timeInterval: Double(60*60*24*days), sinceDate: NSDate(timeIntervalSince1970: Double(10141*60*60*24)))
+                // date started 7/10/1997
+                let formatter = NSDateFormatter()
+                formatter.dateFormat = "yyyy/MM/dd"
+                let someDateTime = formatter.dateFromString("1997/10/8")
+                
+                expDate = (someDateTime?.dateByAddingTimeInterval(Double(60*60*24*days)))!
             }
+            
+            let bankID = Int(barCode.substringWithRange(0, end: 3))
+            bank = banks[bankID!]!
         }
-        return StructBarCode(barCode: barCode, barCodeLine: barCodeLine, value: valueF, expDate: expDate)
+        return StructBarCode(barCode: barCode, barCodeLine: barCodeLine, bank: bank, value: valueF, expDate: expDate)
     }
     
     //    Posição 01-03 = Identificação do banco (exemplo: 001 = Banco do Brasil)
@@ -84,7 +93,7 @@ class BarCodeCalc{
     //    Posição 38-47 = Valor nominal do título (posições 10 a 19 do código de barras)
     func calcStringFromBarCode(barCode: String) throws -> String{
         
-        guard barCode.characters.count == 44 else { throw BarCodeCalcError.Not44Characters(message: "Not 44 Characters") }
+        guard barCode.characters.count <= 46 else { throw BarCodeCalcError.ToManyCharacters(message: "Not 44 Characters") }
         
         let campo1 = barCode.substringWithRange(0, end: 4) + barCode.substringWithRange(19, end: 20) + barCode.substringWithRange(20, end: 24)
         let campo2 = barCode.substringWithRange(24, end: 29) + barCode.substringWithRange(29, end: 34)
