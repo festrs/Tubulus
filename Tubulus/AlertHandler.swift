@@ -62,6 +62,20 @@ class AlertHandler:FPHandlesMOC {
         }
     }
     
+    func deleteLocalNotification(document: Document){
+        let app:UIApplication = UIApplication.sharedApplication()
+        for oneEvent in app.scheduledLocalNotifications! {
+            let notification = oneEvent as UILocalNotification
+            let userInfoCurrent = notification.userInfo! as! [String:AnyObject]
+            let uid = userInfoCurrent["RemoteID"] as! String
+            if uid == document.remoteID! {
+                //Cancelling local notification
+                app.cancelLocalNotification(notification)
+                break;
+            }
+        }
+    }
+    
     func isToSetAlarm() -> Bool{
         if let plist = self.plist {
             let dict = plist.getMutablePlistFile()

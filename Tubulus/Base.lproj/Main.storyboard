@@ -439,6 +439,12 @@
                                             <outletCollection property="gestureRecognizers" destination="5H0-5n-vKY" appends="YES" id="B0l-Em-Ffz"/>
                                         </connections>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS9-LF-jfk">
+                                        <rect key="frame" x="20" y="34" width="53" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clique no número para copiar e no cód para visualizar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-OF-iZe">
                                         <rect key="frame" x="143" y="352" width="314" height="18"/>
                                         <constraints>
@@ -447,8 +453,8 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banco:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PS9-LF-jfk">
-                                        <rect key="frame" x="20" y="34" width="53" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data de vencimento:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01D-DP-OZn">
+                                        <rect key="frame" x="20" y="72" width="560" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -458,10 +464,13 @@
                                     <constraint firstItem="JMm-lg-aF8" firstAttribute="leading" secondItem="nZ3-zc-WkB" secondAttribute="leading" constant="20" id="AKb-3I-nv9"/>
                                     <constraint firstItem="C6b-OF-iZe" firstAttribute="centerX" secondItem="nZ3-zc-WkB" secondAttribute="centerX" id="GD2-ez-MNc"/>
                                     <constraint firstItem="9Ng-gf-Dsr" firstAttribute="height" secondItem="JMm-lg-aF8" secondAttribute="height" id="Lpk-XD-Brx"/>
+                                    <constraint firstItem="01D-DP-OZn" firstAttribute="top" secondItem="PS9-LF-jfk" secondAttribute="bottom" constant="17" id="MRW-ZT-e7p"/>
+                                    <constraint firstItem="01D-DP-OZn" firstAttribute="leading" secondItem="PS9-LF-jfk" secondAttribute="leading" id="Umh-66-au4"/>
                                     <constraint firstItem="JMm-lg-aF8" firstAttribute="centerX" secondItem="nZ3-zc-WkB" secondAttribute="centerX" id="YEe-Vh-iIh"/>
                                     <constraint firstItem="JMm-lg-aF8" firstAttribute="top" secondItem="PS9-LF-jfk" secondAttribute="bottom" constant="72" id="ejx-4O-YZz"/>
                                     <constraint firstItem="JMm-lg-aF8" firstAttribute="leading" secondItem="9Ng-gf-Dsr" secondAttribute="leading" id="fv8-SM-Fwa"/>
                                     <constraint firstItem="9Ng-gf-Dsr" firstAttribute="top" secondItem="JMm-lg-aF8" secondAttribute="bottom" constant="8" symbolic="YES" id="hfR-cC-lnQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="01D-DP-OZn" secondAttribute="trailing" constant="20" id="mOp-OG-KHS"/>
                                     <constraint firstItem="C6b-OF-iZe" firstAttribute="bottom" secondItem="nZ3-zc-WkB" secondAttribute="bottomMargin" id="p8M-1y-ko6"/>
                                     <constraint firstItem="JMm-lg-aF8" firstAttribute="trailing" secondItem="9Ng-gf-Dsr" secondAttribute="trailing" id="pxL-eh-yEB"/>
                                     <constraint firstItem="PS9-LF-jfk" firstAttribute="leading" secondItem="nZ3-zc-WkB" secondAttribute="leading" constant="38" id="shX-NK-hTZ"/>
@@ -486,6 +495,12 @@
                             <constraint firstItem="EVt-fJ-3z7" firstAttribute="leading" secondItem="nZ3-zc-WkB" secondAttribute="leading" id="rVQ-5l-jec"/>
                             <constraint firstAttribute="trailing" secondItem="EVt-fJ-3z7" secondAttribute="trailing" id="yXc-N0-1ro"/>
                         </constraints>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <include reference="EVt-fJ-3z7"/>
+                                <include reference="nZ3-zc-WkB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="c2v-d2-xz6"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -493,6 +508,7 @@
                         <outlet property="bankLabel" destination="PS9-LF-jfk" id="yg3-oa-cl2"/>
                         <outlet property="barCodeImageView" destination="9Ng-gf-Dsr" id="q38-2m-hT4"/>
                         <outlet property="barCodeLineLabel" destination="JMm-lg-aF8" id="bEh-Id-dAd"/>
+                        <outlet property="expDateLabel" destination="01D-DP-OZn" id="bZV-sf-mdv"/>
                         <outlet property="totalLabel" destination="ZBy-jX-6mP" id="LJ8-z5-GVl"/>
                     </connections>
                 </viewController>

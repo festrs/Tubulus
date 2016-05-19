@@ -36,7 +36,7 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.performFetch()
     }
-
+    
     
     // MARK: - QRCodeReader Delegate Methods
     func reader(reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
@@ -45,23 +45,41 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
                 //barcode
                 do{
                     let barCodeStruct = try self.carCodeCalc.extractDataFromBarCode(result.value)
-                    let json = barCodeStruct.toStringJSON().convertStringToDictionary()
-                    print(barCodeStruct.toStringJSON())
-                    let key = json["id"] as! String
-                    let predicate = NSPredicate(format: "remoteID = %@", key)
-                    Sync.changes([json], inEntityNamed: "Document", predicate: predicate, dataStack: self.dataStack, completion: { (error) -> Void in
-                        if error != nil {
-                            print(error)
-                        }else{
-                            self.performFetch()
-                            let items = self.fetchedResultsController?.fetchedObjects as! [Document]
-                            let doc = items.filter({$0.remoteID == key}).first
-                            self.alertHandler.createLocalNotification(doc!)
+                    var json = barCodeStruct.toStringJSON().convertStringToDictionary()
+                    let expDate = json["exp_date"] as? NSNumber
+                    if (expDate == nil) {
+                        DatePickerDialog().show("Data de Vencimento", doneButtonTitle: "Ok", cancelButtonTitle: "Cancelar", datePickerMode: .Date) {
+                            (date) -> Void in
+                            if date != nil{
+                                let formatter = NSNumberFormatter()
+                                formatter.minimumIntegerDigits = 2
+                                let mes = "\(formatter.stringFromNumber((date!.getComponent(.Month))!)!)/\((date!.getComponent(.Year))!)"
+                                json["exp_date"] = date
+                                json["mes"] = mes
+                                self.saveBarCodeObjectToCoreData(json)
+                            }
                         }
-                    })
+                    }else{
+                        self.saveBarCodeObjectToCoreData(json)
+                    }
                 }catch{
                     print(error)
                 }
+            }
+        })
+    }
+    
+    func saveBarCodeObjectToCoreData(jsonObject : [String:AnyObject]){
+        let key = jsonObject["id"] as! String
+        let predicate = NSPredicate(format: "remoteID = %@", key)
+        Sync.changes([jsonObject], inEntityNamed: "Document", predicate: predicate, dataStack: self.dataStack, completion: { (error) -> Void in
+            if error != nil {
+                print(error)
+            }else{
+                self.performFetch()
+                let items = self.fetchedResultsController?.fetchedObjects as! [Document]
+                let doc = items.filter({$0.remoteID == key}).first
+                self.alertHandler.createLocalNotification(doc!)
             }
         })
     }
@@ -96,7 +114,6 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
         indexPath: NSIndexPath) -> UITableViewCell {
         let document = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Document
         let cell = tableView.dequeueReusableCellWithIdentifier("BoletoCell")
-        print(document.expDate)
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Day , .Month , .Year], fromDate: document.expDate!)
         let day = components.day
@@ -109,7 +126,7 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == .Delete) {
             let document = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Document
-            
+            alertHandler.deleteLocalNotification(document)
             dataStack.mainContext.deleteObject(document)
             dataStack.persistWithCompletion(nil)
             self.performFetch()
@@ -130,8 +147,8 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
                 if sender!.isKindOfClass(UITableViewCell){
                     
                     if let cell = sender as? UITableViewCell,
-                    indexPath = self.tableView.indexPathForCell(cell),
-                    document = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Document
+                        indexPath = self.tableView.indexPathForCell(cell),
+                        document = self.fetchedResultsController?.objectAtIndexPath(indexPath) as? Document
                     {
                         vc.document = document
                     }
@@ -139,5 +156,5 @@ class MainViewController: CoreDataTableViewController, FPHandlesMOC, QRCodeReade
             }
         }
     }
-
+    
 }
