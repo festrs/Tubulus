@@ -60,15 +60,15 @@ final class ReaderOverlayView: UIView {
 
   override func drawRect(rect: CGRect) {
     var innerRect = CGRectInset(rect, 50, 50)
-    let minSize   = min(innerRect.width, innerRect.height)
-
-    if innerRect.width != minSize {
-      innerRect.origin.x   += (innerRect.width - minSize) / 2
-      innerRect.size.width = minSize
+    let heightSize = innerRect.height
+    let widthSize = innerRect.width / 2;
+    if innerRect.width != widthSize {
+      innerRect.origin.x   += (innerRect.width - widthSize) / 2
+      innerRect.size.width = widthSize
     }
-    else if innerRect.height != minSize {
-      innerRect.origin.y    += (innerRect.height - minSize) / 2
-      innerRect.size.height = minSize
+    else if innerRect.height != heightSize {
+      innerRect.origin.y    += (innerRect.height - heightSize) / 2
+      innerRect.size.height = heightSize
     }
 
     let offsetRect = CGRectOffset(innerRect, 0, 15)

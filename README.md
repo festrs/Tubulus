@@ -1,4 +1,4 @@
-#**Tubulus**  ![build](https://travis-ci.com/festrs/Tubulus.svg?token=HBc3a74yzkqf9RHYxXqF&branch=master)
+#**Tubulus**  ![build](https://api.travis-ci.org/festrs/Tubulus.svg?branch=master)
 
 Este é um projeto que visa facilitar a vida de quem paga ou tem que pagar boletos bancários. Você escaneia o boleto com a camera do celular, ele salva em uma lista separada por mês. A partir dai você tem todos os boletos em um só lugar e pode pagar quando quiser sem se preocupar em carregar o boleto com você. 
 
