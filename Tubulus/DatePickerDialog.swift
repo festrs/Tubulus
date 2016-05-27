@@ -196,7 +196,7 @@ class DatePickerDialog: UIView {
             buttonWidth,
             kDatePickerDialogDefaultButtonHeight
         )
-        self.cancelButton.setTitleColor(UIColor(rgba:"#F5B00E"), forState: UIControlState.Normal)
+        self.cancelButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: UIControlState.Normal)
         self.cancelButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), forState: UIControlState.Highlighted)
         self.cancelButton.titleLabel!.font = UIFont.boldSystemFontOfSize(14)
         self.cancelButton.layer.cornerRadius = kDatePickerDialogCornerRadius
@@ -211,7 +211,7 @@ class DatePickerDialog: UIView {
             kDatePickerDialogDefaultButtonHeight
         )
         self.doneButton.tag = kDatePickerDialogDoneButtonTag
-        self.doneButton.setTitleColor(UIColor(rgba:"#F5B00E"), forState: UIControlState.Normal)
+        self.doneButton.setTitleColor(UIColor(red: 0, green: 0.5, blue: 1, alpha: 1), forState: UIControlState.Normal)
         self.doneButton.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.5), forState: UIControlState.Highlighted)
         self.doneButton.titleLabel!.font = UIFont.boldSystemFontOfSize(14)
         self.doneButton.layer.cornerRadius = kDatePickerDialogCornerRadius

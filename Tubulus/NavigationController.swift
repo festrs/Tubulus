@@ -19,7 +19,7 @@ class NavigationController: UINavigationController, FPHandlesMOC {
         
         if let coreData = self.viewControllers.first as? CoreDataTableViewController{
             let fetchRequest = NSFetchRequest(entityName: "Document")
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "mes", ascending: false)]
             let fecthController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: incomingDataStack.mainContext, sectionNameKeyPath: "mes" , cacheName: nil)
             coreData.fetchedResultsController = fecthController
         }

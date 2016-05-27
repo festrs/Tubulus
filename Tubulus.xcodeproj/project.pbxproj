@@ -276,6 +276,7 @@
 				TargetAttributes = {
 					3A49065F1CBFFDF100D85C5E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 439F5NHE7E;
 					};
 					3A4906761CBFFDF200D85C5E = {
 						CreatedOnToolsVersion = 7.3;
@@ -571,11 +572,13 @@
 			baseConfigurationReference = 6504B621055F69ED870044AF /* Pods-Tubulus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
 				INFOPLIST_FILE = Tubulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.Tubulus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5f74cdba-f5d2-44d0-8992-9c4da2aa9b40";
 			};
 			name = Debug;
 		};
@@ -584,11 +587,13 @@
 			baseConfigurationReference = 7F72E6EB5C2D4D11381452A9 /* Pods-Tubulus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
 				INFOPLIST_FILE = Tubulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.Tubulus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2b117c25-e5e9-49cb-8a86-cf0b4f881d4d";
 			};
 			name = Release;
 		};

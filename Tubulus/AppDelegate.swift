@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let rootViewController = self.window?.rootViewController as? FPHandlesMOC{
             rootViewController.receiveDataStack(self.dataStack)
         }
-        
         return true
     }
     

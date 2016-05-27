@@ -11,13 +11,13 @@ import Foundation
 
 public struct StructBarCode {
     
-    var barCode: String?
-    var barCodeLine: String?
+    var barCode: String
+    var barCodeLine: String
     var bank: String?
     var value: Float?
     var expDate: NSDate?
     
-    init(barCode: String?, barCodeLine: String?,bank:String?, value: Float?, expDate: NSDate?){
+    init(barCode: String, barCodeLine: String,bank:String?, value: Float?, expDate: NSDate?){
         self.barCode = barCode
         self.barCodeLine = barCodeLine
         self.value = value
@@ -28,7 +28,11 @@ public struct StructBarCode {
     func toStringJSON()->String{
         let formatter = NSNumberFormatter()
         formatter.minimumIntegerDigits = 2
-        return "{\"id\":\"\(barCode!)\",\"bar_code_line\":\"\(barCodeLine!)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"bank\":\"\(bank!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\((NSDate().timeIntervalSince1970))\"}"
+        if (expDate != nil) {
+            return "{\"id\":\"\(barCode)\",\"bar_code_line\":\"\(barCodeLine)\",\"value\":\(value!),\"mes\":\"\(formatter.stringFromNumber((expDate?.getComponent(.Month))!)!)/\((expDate?.getComponent(.Year))!)\",\"bank\":\"\(bank!)\",\"exp_date\":\(expDate!.timeIntervalSince1970),\"created_at\":\"\((NSDate().timeIntervalSince1970))\"}"
+        }else{
+            return "{\"id\":\"\(barCode)\",\"bar_code_line\":\"\(barCodeLine)\",\"value\":\(value!),\"mes\":\"nil\",\"bank\":\"\(bank!)\",\"exp_date\":\"nil\",\"created_at\":\"\((NSDate().timeIntervalSince1970))\"}"
+        }
     }
 }
 
@@ -53,7 +57,7 @@ class BarCodeCalc{
         let index = valueString.characters.count-2
         let value = valueString.insert(".", ind: index)
         var valueF = Float(value)
-        var expDate = NSDate()
+        var expDate:NSDate?
         var bank = ""
         if !verifyModulo11(barCode) {
             if Int(barCode.substringWithRange(5, end: 9)) == 0{
