@@ -22,17 +22,17 @@ class DetailDocumentViewController: UIViewController {
     //MARK: - APP Life
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        totalLabel.text = "Valor do boleto: \((document.value?.toMaskReais())!)"
+        totalLabel.text = "\((document.value?.toMaskReais())!)"
         barCodeLineLabel.text = document.barCodeLine
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        self.expDateLabel.text = "Data de vencimento: \(dateFormatter.stringFromDate(document.expDate!))"
+        self.expDateLabel.text = "\(dateFormatter.stringFromDate(document.expDate!))"
         let image = RSUnifiedCodeGenerator.shared.generateCode(document.remoteID!, machineReadableCodeObjectType: AVMetadataObjectTypeInterleaved2of5Code)
         barCodeImageView.image = image
         let monthName = monthsName[document.expDate!.getComponent(.Month)!]
         self.title = "\(document.expDate!.getComponent(.Day)!)/\(monthName!)"
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(DetailDocumentViewController.didClickBarCode(_:)))
-        self.bankLabel.text = "Banco: \(self.document.bank!)"
+        self.bankLabel.text = "\(self.document.bank!)"
         self.barCodeImageView.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -46,7 +46,7 @@ class DetailDocumentViewController: UIViewController {
     func didClickBarCode(sender: UITapGestureRecognizer) {
         let screenSize: CGRect = self.view.bounds
         let backView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
-        backView.backgroundColor = .blackColor()
+        backView.backgroundColor = .whiteColor()
         backView.contentMode = .ScaleAspectFit
         backView.userInteractionEnabled = true
         let imageView = self.barCodeImageView

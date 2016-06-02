@@ -63,9 +63,9 @@ class CoreDataTableViewController: UIViewController, CoreDataTableViewController
             let currentSection = sections[section]
             return currentSection.name
         }
-        
         return nil
     }
+    
     func tableView(tableView: UITableView, sectionForSectionIndexTitle title: String, atIndex index: Int) -> Int {
         return self.fetchedResultsController!.sectionForSectionIndexTitle(title, atIndex: index)
     }
