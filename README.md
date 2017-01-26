@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9dfda652476c4a8b92325b21d0bf6549)](https://www.codacy.com/app/festrs/Tubulus?utm_source=github.com&utm_medium=referral&utm_content=festrs/Tubulus&utm_campaign=badger)
 #**Tubulus**  [![Build Status](https://travis-ci.org/festrs/Tubulus.svg?branch=master)](https://travis-ci.org/festrs/Tubulus) [![codebeat badge](https://codebeat.co/badges/89fb165f-b746-47ef-b36d-c0b8b455be03)](https://codebeat.co/projects/github-com-festrs-tubulus)
 
 
