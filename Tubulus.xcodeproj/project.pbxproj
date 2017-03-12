@@ -33,8 +33,8 @@
 		3A4906991CC1CB2100D85C5E /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A4906981CC1CB2100D85C5E /* Config.plist */; };
 		3A49069B1CC1CB6B00D85C5E /* FPHandlesMOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49069A1CC1CB6B00D85C5E /* FPHandlesMOC.swift */; };
 		3A49069D1CC1CBEC00D85C5E /* PlistHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A49069C1CC1CBEC00D85C5E /* PlistHelperTests.swift */; };
-		D563D9592805C611CAD2BF2D /* Pods_Tubulus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B94BDFF2C56D4DF7C399C33B /* Pods_Tubulus.framework */; };
-		E044CC08EA3FCDE743001C9E /* Pods_TubulusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E35D10F55E2003233E5F177 /* Pods_TubulusTests.framework */; };
+		4C8BA34530B9D2BC759A74AE /* Pods_TubulusTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFE881FF401E0966C500F8A /* Pods_TubulusTests.framework */; };
+		C638C5C6E8B810702798708D /* Pods_Tubulus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B95C16E26967336437DC506F /* Pods_Tubulus.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C3DEA43E6161EB8F732152B /* Pods-TubulusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TubulusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TubulusTests/Pods-TubulusTests.release.xcconfig"; sourceTree = "<group>"; };
+		1C6DBBD6FA9DDA91BE48BF63 /* Pods-Tubulus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tubulus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus.debug.xcconfig"; sourceTree = "<group>"; };
+		1DFE881FF401E0966C500F8A /* Pods_TubulusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TubulusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A03973B1CC678DB0060F407 /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
 		3A03973C1CC678DB0060F407 /* ConfigDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDetailTableViewController.swift; sourceTree = "<group>"; };
 		3A0397401CC6B9060060F407 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -79,11 +80,10 @@
 		3A4906981CC1CB2100D85C5E /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		3A49069A1CC1CB6B00D85C5E /* FPHandlesMOC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FPHandlesMOC.swift; sourceTree = "<group>"; };
 		3A49069C1CC1CBEC00D85C5E /* PlistHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelperTests.swift; sourceTree = "<group>"; };
-		6504B621055F69ED870044AF /* Pods-Tubulus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tubulus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus.debug.xcconfig"; sourceTree = "<group>"; };
-		7E35D10F55E2003233E5F177 /* Pods_TubulusTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TubulusTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F72E6EB5C2D4D11381452A9 /* Pods-Tubulus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tubulus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus.release.xcconfig"; sourceTree = "<group>"; };
-		B94BDFF2C56D4DF7C399C33B /* Pods_Tubulus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tubulus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C4F057328314D3CB9732A1ED /* Pods-TubulusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TubulusTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TubulusTests/Pods-TubulusTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B9433BC03D02117BB221F6D /* Pods-Tubulus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tubulus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus.release.xcconfig"; sourceTree = "<group>"; };
+		4753F95B2DD6AAF48872AD6A /* Pods-TubulusTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TubulusTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TubulusTests/Pods-TubulusTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F8E085807207A9D59D2182F /* Pods-TubulusTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TubulusTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TubulusTests/Pods-TubulusTests.release.xcconfig"; sourceTree = "<group>"; };
+		B95C16E26967336437DC506F /* Pods_Tubulus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tubulus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D563D9592805C611CAD2BF2D /* Pods_Tubulus.framework in Frameworks */,
+				C638C5C6E8B810702798708D /* Pods_Tubulus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +99,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E044CC08EA3FCDE743001C9E /* Pods_TubulusTests.framework in Frameworks */,
+				4C8BA34530B9D2BC759A74AE /* Pods_TubulusTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		019B86091CCC45A9BE3EE67C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B95C16E26967336437DC506F /* Pods_Tubulus.framework */,
+				1DFE881FF401E0966C500F8A /* Pods_TubulusTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3A03973F1CC678E10060F407 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +144,8 @@
 				3A4906621CBFFDF100D85C5E /* Tubulus */,
 				3A49067A1CBFFDF200D85C5E /* TubulusTests */,
 				3A4906611CBFFDF100D85C5E /* Products */,
-				A663EB1F507B569D183E1870 /* Pods */,
-				BCAF52B5652279B341BBC44F /* Frameworks */,
+				EC2BCC5A74B4EBCD34F92A79 /* Pods */,
+				019B86091CCC45A9BE3EE67C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -200,24 +209,15 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
-		A663EB1F507B569D183E1870 /* Pods */ = {
+		EC2BCC5A74B4EBCD34F92A79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6504B621055F69ED870044AF /* Pods-Tubulus.debug.xcconfig */,
-				7F72E6EB5C2D4D11381452A9 /* Pods-Tubulus.release.xcconfig */,
-				C4F057328314D3CB9732A1ED /* Pods-TubulusTests.debug.xcconfig */,
-				2C3DEA43E6161EB8F732152B /* Pods-TubulusTests.release.xcconfig */,
+				1C6DBBD6FA9DDA91BE48BF63 /* Pods-Tubulus.debug.xcconfig */,
+				3B9433BC03D02117BB221F6D /* Pods-Tubulus.release.xcconfig */,
+				4753F95B2DD6AAF48872AD6A /* Pods-TubulusTests.debug.xcconfig */,
+				4F8E085807207A9D59D2182F /* Pods-TubulusTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		BCAF52B5652279B341BBC44F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B94BDFF2C56D4DF7C399C33B /* Pods_Tubulus.framework */,
-				7E35D10F55E2003233E5F177 /* Pods_TubulusTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,12 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A4906801CBFFDF200D85C5E /* Build configuration list for PBXNativeTarget "Tubulus" */;
 			buildPhases = (
-				DBB746A697215806B188C41C /* Check Pods Manifest.lock */,
+				C6D1888AFA30C29F118CB898 /* [CP] Check Pods Manifest.lock */,
 				3A49065C1CBFFDF100D85C5E /* Sources */,
 				3A49065D1CBFFDF100D85C5E /* Frameworks */,
 				3A49065E1CBFFDF100D85C5E /* Resources */,
-				8562D6CFD957D61C5FFCE765 /* Embed Pods Frameworks */,
-				5B2136BA5F94DD81D23EC58F /* Copy Pods Resources */,
+				D0CF2F156EFF70EE0AC029EF /* [CP] Embed Pods Frameworks */,
+				D70587AD8E546D00D71406B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,12 +247,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3A4906831CBFFDF200D85C5E /* Build configuration list for PBXNativeTarget "TubulusTests" */;
 			buildPhases = (
-				B0E7CB6D4A575E48B26A650C /* Check Pods Manifest.lock */,
+				CFBCA3B90A7E753BE45F3E51 /* [CP] Check Pods Manifest.lock */,
 				3A4906731CBFFDF200D85C5E /* Sources */,
 				3A4906741CBFFDF200D85C5E /* Frameworks */,
 				3A4906751CBFFDF200D85C5E /* Resources */,
-				1E8E4944E4BDF001700B32A4 /* Embed Pods Frameworks */,
-				C91FC1D78C04AEE9E96073B4 /* Copy Pods Resources */,
+				20897A72AE444DBBA9A4F8FD /* [CP] Embed Pods Frameworks */,
+				0EFF2086421510B5D20CAB26 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -325,74 +325,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E8E4944E4BDF001700B32A4 /* Embed Pods Frameworks */ = {
+		0EFF2086421510B5D20CAB26 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TubulusTests/Pods-TubulusTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B2136BA5F94DD81D23EC58F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8562D6CFD957D61C5FFCE765 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0E7CB6D4A575E48B26A650C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C91FC1D78C04AEE9E96073B4 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,19 +340,79 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TubulusTests/Pods-TubulusTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DBB746A697215806B188C41C /* Check Pods Manifest.lock */ = {
+		20897A72AE444DBBA9A4F8FD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TubulusTests/Pods-TubulusTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6D1888AFA30C29F118CB898 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CFBCA3B90A7E753BE45F3E51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D0CF2F156EFF70EE0AC029EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D70587AD8E546D00D71406B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tubulus/Pods-Tubulus-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -569,37 +569,41 @@
 		};
 		3A4906811CBFFDF200D85C5E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6504B621055F69ED870044AF /* Pods-Tubulus.debug.xcconfig */;
+			baseConfigurationReference = 1C6DBBD6FA9DDA91BE48BF63 /* Pods-Tubulus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Felipe Dias Pereira (4ESLPZ55NB)";
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = Tubulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.Tubulus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5f74cdba-f5d2-44d0-8992-9c4da2aa9b40";
+				PROVISIONING_PROFILE = "af8621ce-6665-4742-a41c-e71c3660ddd6";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		3A4906821CBFFDF200D85C5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7F72E6EB5C2D4D11381452A9 /* Pods-Tubulus.release.xcconfig */;
+			baseConfigurationReference = 3B9433BC03D02117BB221F6D /* Pods-Tubulus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Felipe Pereira (439F5NHE7E)";
+				CURRENT_PROJECT_VERSION = 2;
 				INFOPLIST_FILE = Tubulus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = felipep.com.Tubulus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2b117c25-e5e9-49cb-8a86-cf0b4f881d4d";
+				PROVISIONING_PROFILE = "758ed170-35b9-4815-b759-427baec41a30";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		3A4906841CBFFDF200D85C5E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4F057328314D3CB9732A1ED /* Pods-TubulusTests.debug.xcconfig */;
+			baseConfigurationReference = 4753F95B2DD6AAF48872AD6A /* Pods-TubulusTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TubulusTests/Info.plist;
@@ -612,7 +616,7 @@
 		};
 		3A4906851CBFFDF200D85C5E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C3DEA43E6161EB8F732152B /* Pods-TubulusTests.release.xcconfig */;
+			baseConfigurationReference = 4F8E085807207A9D59D2182F /* Pods-TubulusTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = TubulusTests/Info.plist;

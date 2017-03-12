@@ -1,0 +1,14 @@
+Este é um aplicativo que visa facilitar a vida de quem paga ou tem que pagar boletos bancários. Você escaneia o boleto com a camera do celular, ele salva em uma lista separada por mês. A partir dai você tem todos os boletos em um só lugar e pode pagar quando quiser sem se preocupar em carregar o boleto com você. 
+
+O Tubulus chegou para ficar na sua vida, e para você não esquecer de pagar aquele boleto e gerar aquela multa indesejada, ele vem com sistema de avisos antes ou no mesmo dia do vencimento.
+
+Você já teve que digitar aquele código de barras do boleto? Agora com Tubulus você consegue copiar ele facilmente. É só escanear e clicar no número.
+
+Ainda conta com o acompanhamento dos gastos por mês, pois ele soma todos os boletos que você escanear.
+
+- [x] Repositório para boletos
+- [x] Separados Mensalmente
+- [x] Alerta de vencimento
+- [x] Facilidade na cópia da "Linha do Boleto" (número do boleto)
+- [x] Armazenamento local
+- [x] Grátis

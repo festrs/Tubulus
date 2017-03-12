@@ -30,7 +30,7 @@ Este projeto visa o crescimento da comunidade de Swift.
 
 # Autor
 
-Felipe Pereira, [@festrs](https://github.com/festrs)
+[Felipe Pereira](http://festrs.github.io/)
 
 **Colaboradores** Jáder Nunes, Vicente Miraber, Gabriel Pereira
 
