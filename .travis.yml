@@ -2,8 +2,5 @@ language: objective-c
 
 osx_image: xcode7.3
 
-before_install:
-   - rvm use system
-
 script:
-    xcodebuild -workspace Tubulus.xcworkspace -scheme Tubulus -sdk iphonesimulator build test
+- xcodebuild -workspace Tubulus.xcworkspace -scheme Tubulus -sdk iphonesimulator clean build
